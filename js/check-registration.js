@@ -32,17 +32,22 @@ $(document).ready(function() {
                 
                 
                 if (email.val().length == 0) {
+//                    $('#email_required').remove();
+                    LoginCheckerModule._removeEmailError();
                     email_empty_tooltip.insertBefore(form);
                     _cur_validate = false;
                 } else {
                     var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
                     if( !(pattern.test(email.val())) ) {
+//                        $('#email_format_wrong').remove();
+                        LoginCheckerModule._removeEmailError();
                         email_format_tooltip.insertBefore(form);
                         _cur_validate = false;
                     }
                 }
                 
                 if (password.val().length == 0) {
+                    LoginCheckerModule._removePasswordError();
                     password_empty_tooltip.insertBefore(form);
                     _cur_validate = false;
                 }
@@ -52,18 +57,18 @@ $(document).ready(function() {
                     
                     
                     if (_mail_correct) {
+                        $('#login_existed').remove();
                         login_or_password_tooltip.insertBefore(form);
                         _cur_validate = false;
                     }
                 }
                 
                 email.on('focus', function() {
-                        $('#email_required').remove();
-                        $('#email_format_wrong').remove();
+                        LoginCheckerModule._removeEmailError();
                         $('#login_existed').remove();
                 });
                 password.on('focus', function() {
-                        $('#password_required').remove();
+                        LoginCheckerModule._removePasswordError();
                 });
                 LoginCheckerModule._validate_bool = _cur_validate;
                 
@@ -74,6 +79,13 @@ $(document).ready(function() {
                 if(LoginCheckerModule._validate_bool) {
                     $('#form').submit();
                 }
+            },
+            _removeEmailError: function() {
+                $('#email_required').remove();
+                $('#email_format_wrong').remove();
+            },
+            _removePasswordError: function () {
+                $('#password_required').remove();
             }
         };
         LoginCheckerModule.init();
