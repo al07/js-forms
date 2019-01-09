@@ -1,23 +1,5 @@
-<!DOCTYPE html>
-<html lang="ru">
+<?php
 
-<head>
-	<meta charset="UTF-8" />
-	<title>Успешно!</title>
-	<link rel="stylesheet" href="libs/normalize-css/normalize.css" />
-	<link rel="stylesheet" href="libs/bootstrap-4-grid/grid.min.css" />
-	<link rel="stylesheet" href="css/main.css" />
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
-</head>
+    location("success.html");
 
-<body class="index-page">
-	<div class="container user-content section-page">
-		<div class="title-1 mb-35 success">Форма отправлена успешно!</div>
-		<p>
-			<a href="index.html">Вернуться на главную</a>
-		</p>
-	</div>
-
-</body>
-
-</html>
+?>

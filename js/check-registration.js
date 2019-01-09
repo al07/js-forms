@@ -78,6 +78,8 @@ $(document).ready(function() {
             _send_form: function(event) {
                 if(LoginCheckerModule._validate_bool) {
                     $('#form').submit();
+                } else {
+                    event.preventDefault();
                 }
             },
             _removeEmailError: function() {

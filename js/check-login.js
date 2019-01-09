@@ -68,10 +68,8 @@ $(document).ready(function() {
                 
                 if(!(_cur_validate)) {
                     event.preventDefault();
-                } else {
-                    
-                    
                 }
+                
                 email.on('focus', function() {
                     LoginCheckerModule._removeEmailError();
                     $('#login_password_wrong').remove();
@@ -87,7 +85,10 @@ $(document).ready(function() {
             },
             _send_form: function(event) {
                 if(LoginCheckerModule._validate_bool) {
+                    console.log("Отправка почты");
                     $('#form').submit();
+                } else {
+                    event.preventDefault();
                 }
             },
             _removeEmailError: function() {
