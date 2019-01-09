@@ -14,13 +14,13 @@ $(document).ready(function() {
             },
             
             _validateForm: function(event) {
-                event.preventDefault();
+                
                 _cur_validate = true;
                 
                 var email = $('#form_email');
                 var password = $('#form_password');
                 var form = email.parents('#form');
-                console.log("Привет из валидейт!");
+                
                 email_empty_tooltip = $('<div class="notify notify--error mb-20" id="email_required">Введите email</div>');
                 email_format_tooltip = $('<div class="notify notify--error mb-20" id="email_format_wrong">Неверный формат email</div>');
                 
@@ -70,12 +70,18 @@ $(document).ready(function() {
                 password.on('focus', function() {
                         LoginCheckerModule._removePasswordError();
                 });
+                console.log("_cur_validate= " + _cur_validate);
+                if (!(_cur_validate)) {
+                    
+                    event.preventDefault();
+                }
                 LoginCheckerModule._validate_bool = _cur_validate;
                 
                 
                 
             },
             _send_form: function(event) {
+                console.log("Зашел отправить");
                 if(LoginCheckerModule._validate_bool) {
                     $('#form').submit();
                 } else {

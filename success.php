@@ -1,5 +1,5 @@
 <?php
 
-    location("success.html");
+    header('Location: success.html');
 
 ?>
